@@ -70,8 +70,12 @@ h4 {
     padding: 20px;
 }
 
+main.content.container{
+    margin: auto;
+}
+
 .subforum{
-    margin-top:20px;
+    margin: auto;
 }
 
 .subforum-title{
