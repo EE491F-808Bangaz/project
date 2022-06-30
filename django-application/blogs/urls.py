@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from .views import LikeView
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/detail/', views.post_details, name='post_details'),
@@ -14,4 +14,6 @@ urlpatterns = [
     path('register', views.register_request, name="register"),
     path('login/', views.login_request, name="login"),
     path('logout/', views.logout_request, name="logout"),
+    path('like/<int:pk>', views.LikeView, name ='like_post'),
+    path('dislike/<int:pk>', views.DislikeView, name ='dislike_post'),
 ]

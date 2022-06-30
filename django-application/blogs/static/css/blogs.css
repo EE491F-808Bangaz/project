@@ -87,8 +87,8 @@ h4 {
 }
 
 .subforum-column{
-    padding: 10px;
-    margin:4px;
+    padding: 30px;
+    margin:5px;
     border-radius: 5px;
     background-color:#111314;
 }
@@ -103,9 +103,6 @@ h4 {
     align-items: center;
 }
 
-.subforum-icon i{
-    font-size: 45px;
-}
 
 .subforum-devider{
     display: none;   

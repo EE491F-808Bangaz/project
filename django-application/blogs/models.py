@@ -10,12 +10,8 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    # # Adding Likes
-    # likes = models.ManyToManyField(User, related_name='blog_posts')
-
-    # # Show Stored Likes
-    # def total_likes(self):
-    #     return self.likes.count
+    likes = models.ManyToManyField(User, related_name='forum_post')
+    dislikes = models.ManyToManyField(User, related_name = 'f_post')
 
     def publish(self):
         self.published_date = timezone.now()
@@ -23,3 +19,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def total_likes(self):
+        return self.likes.count()
+    
+    def total_dislikes(self):
+        return self.dislikes.count()

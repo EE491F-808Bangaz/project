@@ -11,7 +11,17 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponseRedirect
 
+def LikeView(request,pk):
+    post = get_object_or_404(Post, pk = pk)
+    post.likes.add(request.user)
+    return redirect('post_list')
+
+def DislikeView(request, pk):
+    post = get_object_or_404(Post, pk = pk)
+    post.dislikes.add(request.user)
+    return redirect('post_list')
 
 # Register an account
 def register_request(request):
@@ -63,6 +73,7 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blogs/post_list.html', {'posts': posts})
 
+
 def post_details(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blogs/post_detail.html', {'post': post})
@@ -93,6 +104,19 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blogs/post_edit.html', {'form': form})
+
+class PostalView(generic.ListView):
+    model = Post
+    template_name = 'post_list.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostalView, self).get_context_data(*args, **kwargs)
+        getstuff = get_object_or_404(Post, id=self.kwargs['pk'] )
+        total_likes = getstuff.total_likes()
+        total_dislikes = getstuff.total_dislikes()
+        context['total_likes'] = total_likes
+        context['total_dislikes'] = total_dislikes
+        return context
 
 class SearchView(generic.ListView):
     template_name = 'blogs/search.html'
