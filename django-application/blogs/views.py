@@ -71,7 +71,10 @@ class IndexView(generic.ListView):
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blogs/post_list.html', {'posts': posts})
+    context = {
+        'posts' : posts, 
+    }
+    return render(request, 'blogs/post_list.html', context)
 
 
 def post_details(request, pk):

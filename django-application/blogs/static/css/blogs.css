@@ -125,3 +125,7 @@ h4 {
 body{
     background-color: grey;
 }
+
+.addimage{
+    background: url("images/komi.jpg") repeat;
+}
