@@ -65,23 +65,25 @@
     </nav>
 
 
-{% comment %} Implementing Tabs for Responsive Interface: {% endcomment %}
-
-<h2 class='creators'>Meet the Creators:</h2>
-<center>
-    <p class='danger'>Please click on the x button in the top right corner to close the current tab:</p>
-</center>
-<div class="tab">
-    <button class="tablinks" onclick="openCreator(event, 'Megan')" id="defaultOpen">Megan</button>
-    <button class="tablinks" onclick="openCreator(event, 'Gian')">Gian</button>
-    <button class="tablinks" onclick="openCreator(event, 'Destynee')">Destynee</button>
-    <button class="tablinks" onclick="openCreator(event, 'Nathan')">Nathan</button>
-</div>
-
- <div id="Megan" class="tabcontent">
-    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-    <h3 class="Megan">Electrical Engineer Student at University of Hawai'i at Manoa</h3>
-    <p class="MeganDescript">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">Megan</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1">Gian</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu2">Nathan</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#menu2">Destynee</a>
+      </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane container active" id="home">
         Hi Everyone!
         <br> 
         My name is Megan Li and I'm studying Electrical Engineering at University of Hawai'i at Manoa. 
@@ -92,80 +94,17 @@
         I like how this class is structured and it definitely helps with how I learn.
         Thanks for stopping by and learning about me!
         <br> 
-        {% comment %} Insert Image {% endcomment %}
-     </p>
- </div>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+        Aloha,
+        My name is Giancarlo Portillo, I am currently an Computer Engineering Student at the University of Hawai'i Manoa
+        I am a Senior and I am anticipating to graduate December 2022. I currenly am an OTCR intern at West Yost, currently 
+        I do SCADA and PLC programming, but my dream goal is to become a Software Engineer at a big tech company. My end game goal
+        is to work for either Apple or Google.
+    </div>
+    <div class="tab-pane container fade" id="menu2">...</div>
+  </div>
 
-<div id="Gian" class="tabcontent">
-    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-    <h3 class='Gian'>Gian</h3>
-    <p class='GianDescript'>
-        gfdgdgdfgdf
-        gf
-        fd
-        gdf
-        gdf
-        gdf
-        gfd
-        gd
-        fgfd
-        g
-        dgd
-        fgd
-        fg
-        fdg
-        Gian is the capital of France.
-        {% comment %} Insert Image {% endcomment %}
-    </p>
-</div>
 
-<div id="Destynee" class="tabcontent">
-    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-    <h3 class='Destynee'>Destynee</h3>
-    <p class='DestyneeDescript'>
-        D
-        gfd
-        gfd
-        gd
-        fg
-        dfg
-        dfgestynee is the capital of Japan.
-        {% comment %} Insert Image {% endcomment %}
-    </p>
-</div>
-
-<div id="Nathan" class="tabcontent">
-    <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-    <h3 class='Nathan'>Nathan</h3>
-    <p class='NathanDescript'>
-        gfdgdgdfgdfgd
-        fgdfg
-        dgddfg
-        dfgdf
-        gf
-        is the capital of Japan.
-        {% comment %} Insert Image {% endcomment %}
-    </p>
-</div>
-
-<script>
-    function openCreator(evt, creatorName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(creatorName).style.display = "block";
-    evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
- 
 </body> 
 </html> 

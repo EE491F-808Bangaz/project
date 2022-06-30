@@ -1,4 +1,4 @@
-/* .page-header {
+ .page-header {
     background-color: lightblue;
     margin-top: 0;
     margin-bottom: 50px;
@@ -42,7 +42,7 @@ h4 {
     padding: 30px 20px 20px 30px;
     color: white;
     font-family: 'Lobster', cursive;
-} */
+} 
 
 
 .post-form textarea,
@@ -123,7 +123,7 @@ h4 {
 }
 
 body{
-    background-color: grey;
+    background-color: white;
 }
 
 .addimage{
