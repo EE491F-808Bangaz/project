@@ -155,7 +155,10 @@ class TodayView(generic.ListView):
         """Return all the blogs."""
         return Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 
-
-         
-
+class AboutViews(generic.ListView):
+    template_name = 'blogs/aboutme.html'
+    context_object_name = 'about'
     
+    def get_queryset(self):
+        """Return all the blogs."""
+        return Post.objects.all()

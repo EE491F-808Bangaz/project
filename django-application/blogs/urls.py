@@ -16,4 +16,5 @@ urlpatterns = [
     path('logout/', views.logout_request, name="logout"),
     path('like/<int:pk>', views.LikeView, name ='like_post'),
     path('dislike/<int:pk>', views.DislikeView, name ='dislike_post'),
+    path('aboutme/', views.AboutViews.as_view(), name='about'),
 ]

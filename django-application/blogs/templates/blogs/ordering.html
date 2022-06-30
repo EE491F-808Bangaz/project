@@ -20,7 +20,10 @@
             <li class="nav-item">
               <a class="nav-link active" href = "{% url 'post_list' %}">{% csrf_token %}808 Bangaz</a>
             </li>
-           <li class="nav-item">
+            <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link" href= "{% url 'about' %}">{% csrf_token %}About Us</a>
+            </li>
               <a class="nav-link" href=" {% url 'register' %}"> Create an Account </a>
             </li>
             {% if user.is_authenticated %}
@@ -81,7 +84,7 @@
                     </div>
                 {% else %}
                     <div class="subforum-stats subforum-column center" style = "color:white">
-                       <small> You are not allowed to edit or delete </small>
+                       <small> You are not authorized to edit or delete this forum. </small>
                     </div>
                 {% endif %}
             {% endif %}
