@@ -16,12 +16,12 @@ from django.http import HttpResponseRedirect
 def LikeView(request,pk):
     post = get_object_or_404(Post, pk = pk)
     post.likes.add(request.user)
-    return redirect('post_list')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 def DislikeView(request, pk):
     post = get_object_or_404(Post, pk = pk)
     post.dislikes.add(request.user)
-    return redirect('post_list')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 # Register an account
 def register_request(request):
@@ -76,7 +76,14 @@ def post_list(request):
 
 def post_details(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blogs/post_detail.html', {'post': post})
+    is_liked = False
+    context = { 
+        'post' : post,
+        'is_liked' : is_liked,
+        'total_likes': post.total_likes(),
+        'total_dislikes': post.total_dislikes(),
+    }
+    return render(request, 'blogs/post_detail.html', context)
 
 def post_new(request):
     if request.method == "POST":
@@ -104,19 +111,6 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blogs/post_edit.html', {'form': form})
-
-class PostalView(generic.ListView):
-    model = Post
-    template_name = 'post_list.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(PostalView, self).get_context_data(*args, **kwargs)
-        getstuff = get_object_or_404(Post, id=self.kwargs['pk'])
-        total_likes = getstuff.total_likes()
-        total_dislikes = getstuff.total_dislikes()
-        context['total_likes'] = total_likes
-        context['total_dislikes'] = total_dislikes
-        return context
 
 class SearchView(generic.ListView):
     template_name = 'blogs/search.html'

@@ -9,8 +9,8 @@
                 {% if user.is_authenticated%}
                     <div class = "subforum-column center">
                         <i class = "fa fa-car center"></i>
-                            <form action = "{% url 'like_post' post.pk %}" method = "POST"> {% csrf_token%} <button type = "submit", name"post_id" value = "{{post.id}}", class = "btn btn-primary btn-sm"> Like </button> <small style = "color:orange"> - {{total_likes}} - likes </small> </form>                      
-                            <form action = "{% url 'dislike_post' post.pk %}" method = "POST"> {% csrf_token%} <button type = "submit", name"post_id" value = "{{post.id}}", class = "btn btn-primary btn-sm"> Dislike </button> </form>
+                            <form action = "{% url 'like_post' post.pk %}" method = "POST"> {% csrf_token%} <button type = "submit", name = "post_id" value = "{{post.id}}", class = "btn btn-primary btn-sm"> Like </button> <small style = "color:orange"> - {{total_likes}} - likes </small> </form>                      
+                            <form action = "{% url 'dislike_post' post.pk %}" method = "POST"> {% csrf_token%} <button type = "submit", name = "post_id" value = "{{post.id}}", class = "btn btn-primary btn-sm"> Dislike </button> </form>
                     </div>
                 {%else%}
                     <div class = "subforum-column center">

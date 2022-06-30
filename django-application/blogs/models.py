@@ -10,8 +10,8 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    likes = models.ManyToManyField(User, related_name='forum_post')
-    dislikes = models.ManyToManyField(User, related_name = 'f_post')
+    likes = models.ManyToManyField(User, related_name='forum_post', blank = True)
+    dislikes = models.ManyToManyField(User, related_name = 'f_post', blank = True)
 
     def publish(self):
         self.published_date = timezone.now()
