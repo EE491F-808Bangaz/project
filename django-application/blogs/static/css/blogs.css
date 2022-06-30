@@ -3,7 +3,7 @@
     margin-top: 0;
     margin-bottom: 50px;
     padding: 10px 10px 10px 10px;
-    font-family: 'Lobster', cursive;
+    font-family: "Lucida Console", "Courier New", monospace;
     text-align: left;
 }
 
@@ -18,7 +18,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Lobster', cursive;
+    font-family: Georgia, serif;
 }
 
 
@@ -100,10 +100,24 @@ h4 {
 .center{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 
 .subforum-devider{
     display: none;   
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.removeline {
+    text-decoration: none;
+    color: black
+}
+
+.bigtext {
+    font-size: 150%;
+    font-family: Georgia, serif;
+
 }

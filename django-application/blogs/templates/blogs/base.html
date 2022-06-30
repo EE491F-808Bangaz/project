@@ -45,18 +45,21 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" text-align: "right"; href="{% url 'search' %}">Search</a>
-              </ul>
+                </ul>
+                {% if user.is_authenticated%}
+                    <ul class = 'navbar-nav ml-auto'>
+                        <li class = "nav-item">
+                            <a class="nav-link" href="#">  Welcome back {{user.username}}! </a>
+                        </li>
+                    <ul>
+                {% endif %}
             </div>
           </nav>
-
     </div>
-        <ul>
+        <ul> 
             <div class="row">
                 <div class="col">
             <main class="content container">
-                <div class="subforum">
-                    <div class="subforum-title">
-                        <h1 style = "color:white">General Information</h1>
                     </div>
                         {% block content %}
                             {% if user.is_authenticated %}

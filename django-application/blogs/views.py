@@ -111,7 +111,7 @@ class PostalView(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(PostalView, self).get_context_data(*args, **kwargs)
-        getstuff = get_object_or_404(Post, id=self.kwargs['pk'] )
+        getstuff = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = getstuff.total_likes()
         total_dislikes = getstuff.total_dislikes()
         context['total_likes'] = total_likes
