@@ -58,6 +58,7 @@
             </div>
           </nav> 
 
+<!-- search bar logic-->
 {% if blogs_list %}
     <center>
         <ul>
@@ -72,13 +73,16 @@
     {% for blog in filter.qs %}
     <article class ="post">
         <div class = "subforum-row">
+            <!-- This is the profile picture-->
                 <div class = "subforum-column center">
                     <i class = "fa fa-car center"></i>
                     <img  width="100" height="100" src = 'https://64.media.tumblr.com/6d0bc9ef0a8d06ca8824d9eef3b69dcb/2c26bb4b70f59829-8c/s250x250_c1/bab2cb61bef86b0c1b93dc7adf89dccab4359c11.jpg'> 
-                </div>
+                </div>      
+        <!-- send user to the detail page when clicked-->
         <div class = "subforum-description subforum-column center">
             <a href = "{% url 'post_details' pk=blog.pk %}" style = "color:white" class = 'removeline bigtext'> {{blog.title}} </a>
         </div>
+        <!-- allow user to edit/delete post only if they are the creator-->
         {%if user.is_authenticated%}
             {% if user.id == blog.author.id %}
                 <div class="subforum-stats subforum-column center" style = "color:blue">
@@ -89,11 +93,13 @@
                     </a>
                 </div>
             {% else %}
+            <!-- let them know they have no rights here-->
                 <div class="subforum-stats subforum-column center" style = "color:white">
-                   <small> You are not allowed to edit or delete </small>
+                   <small> You are not authorized to edit or delete this forum. </small>
                 </div>
             {% endif %}
         {% endif %}
+        <!-- show the time posted/ who made the post-->
         <div class = "subforum-info subforum-column">
             <b style = "color:white"> Last Posted by </b> <a style = "color:white"> {{blog.author}}</a>
             <br> <b style = "color:white"> on </b> <small> <time class = "time" style = "color:white"> {{blog.published_date}} <time> </small>

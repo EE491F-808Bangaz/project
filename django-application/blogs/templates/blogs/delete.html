@@ -15,8 +15,10 @@
                 Text: {{ object.text }}?
                 </p>
             <br>
+            <!-- button to delete post-->
             <button class = "button button1" > <input type="submit" value="Confirm"> </button>
             <br>
+            <!-- take user back to home screen if they do not want to delete post-->
             <h4><a href="{% url 'post_list' %}">No, I do not want to delete the post</a></h4>
             </div>
         </aside>
