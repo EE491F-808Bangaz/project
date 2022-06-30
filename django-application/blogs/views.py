@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.utils import timezone
 from django.urls import reverse_lazy, reverse
-from .models import Post
-from .forms import PostForm
+from .models import Post, Contact
+from .forms import PostForm, ContactForm
 from .filters import PostFilter
 from django.contrib.auth.models import User
 from django.shortcuts import  render, redirect
@@ -12,6 +12,33 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
+
+class contact(generic.ListView):
+    template_name = 'blogs/contact.html'
+    context_object_name = 'contact'
+
+    def get_queryset(self):
+        """Return all the blogs."""
+        return Post.objects.all()
+
+def contact_view(request):
+    if request.method == 'POST':
+        contact = Contact()
+        subject = request.POST.get('subject')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        contact.message = message
+        contact.email = email
+        contact.subject = subject
+        contact.save()
+        return HttpResponseRedirect("Thanks for Contacting us!")
+    return render(request,'contact.html')
+
+    form = ContactForm()
+    context = {
+        'form': form
+    }
+    return render(request = 'request', template_name="blogs/contact.html", context = context)
 
 def LikeView(request,pk):
     post = get_object_or_404(Post, pk = pk)

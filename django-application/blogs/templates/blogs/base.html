@@ -9,7 +9,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+        <link rel="stylesheet" href="{% static 'blogs/blogs.css' %}">
       
     </head>
     <!-- Nav Bar -->
@@ -44,6 +44,9 @@
                             <li><a class = "dropdown-item" href = " {% url 'ordering' %}"> Newest to Oldest</a></li>
                             <li><a class = "dropdown-item" href = " {% url 'todayDate' %}"> Oldest to Newest</a></li>
                         </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'contact' %}"> Contact Us </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" text-align: "right"; href="{% url 'search' %}">Search</a>

@@ -25,3 +25,11 @@ class Post(models.Model):
     
     def total_dislikes(self):
         return self.dislikes.count()
+
+class Contact(models.Model):
+    email = models.EmailField()
+    subject = models.CharField(max_length = 255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email
