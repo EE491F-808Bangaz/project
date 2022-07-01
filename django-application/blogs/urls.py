@@ -17,5 +17,5 @@ urlpatterns = [
     path('like/<int:pk>', views.LikeView, name ='like_post'),
     path('dislike/<int:pk>', views.DislikeView, name ='dislike_post'),
     path('aboutme/', views.AboutViews.as_view(), name='about'),
-    path('contactus/', views.contact.as_view(), name='contact'),
+    path('contact/', views.contact, name='contact'),
 ]

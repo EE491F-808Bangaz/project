@@ -11,34 +11,31 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.mail import send_mail, BadHeaderError
 
-class contact(generic.ListView):
-    template_name = 'blogs/contact.html'
-    context_object_name = 'contact'
+# Contacting Us 
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = "Website Inquiry" 
+			body = {
+			'first_name': form.cleaned_data['first_name'], 
+			'last_name': form.cleaned_data['last_name'], 
+			'email': form.cleaned_data['email_address'], 
+			'message':form.cleaned_data['message'], 
+			}
+			message = "\n".join(body.values())
 
-    def get_queryset(self):
-        """Return all the blogs."""
-        return Post.objects.all()
-
-def contact_view(request):
-    if request.method == 'POST':
-        contact = Contact()
-        subject = request.POST.get('subject')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        contact.message = message
-        contact.email = email
-        contact.subject = subject
-        contact.save()
-        return HttpResponseRedirect("Thanks for Contacting us!")
-    return render(request,'contact.html')
-
-    form = ContactForm()
-    context = {
-        'form': form
-    }
-    return render(request = 'request', template_name="blogs/contact.html", context = context)
+			try:
+				send_mail(subject, message, 'meganli@hawaii.edu', ['meganli@hawaii.edu']) 
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return redirect ("post_list")
+      
+	form = ContactForm()
+	return render(request, "blogs/contact.html", {'form':form})
 
 def LikeView(request,pk):
     post = get_object_or_404(Post, pk = pk)

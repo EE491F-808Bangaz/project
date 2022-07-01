@@ -87,11 +87,17 @@
   </ul>
   
   <!-- Tab panes -->
-  <div class="tab-content">
+  <div class="tab-content meganbackground">
     <div class="tab-pane container active" id="home">
-        <img  width="300" height="400" src = "{% static 'blogs/images/megan.png' %}">
+        <h3 class = " megantitle"> Megan Li </h3>
+        <br>
+        <img class = "picture" width="300" height="400" src = "{% static 'blogs/images/megan.png' %}">
         <br>
         <br>
+        <br>
+        <div class = " container-fluid bg-dark text-white">
+        <br>
+        <p>
         Hi Everyone!
         <br> 
         My name is Megan Li and I'm studying Electrical Engineering at University of Hawai'i at Manoa. 
@@ -101,10 +107,15 @@
         This class is challanging, but you definitely do learn a lot of coding!
         I like how this class is structured and it definitely helps with how I learn.
         Thanks for stopping by and learning about me!
-        <br> 
+        <br>
+        <br>
+        <p> 
+        </div>
     </div>
     <div class="tab-pane container fade" id="menu1">
-        <img  width="300" height="400" src = "{% static 'blogs/images/duck.JPG' %}">
+        <h3 class = " giantitle"> Giancarlo Portillo </h3>
+        <br>
+        <img class ="picture" width="300" height="400" src = "{% static 'blogs/images/duck.JPG' %}">
         <br>
         <br>
         <div class = " container-fluid bg-dark text-white">
@@ -124,12 +135,20 @@
 
   <div class="tab-pane container fade" id="menu3">
     
-    <img  width="300" height="400" src = "{% static 'blogs/images/destynee.png' %}">
-    <p>
+    <h3 class = "dtitle"> Destynee Jean Fagaragan </h3>    
+    <br>
+    <img  class ="picture" width="300" height="400" src = "{% static 'blogs/images/destynee.png' %}">
+    <br>
+    <br>
+    <div class = " container-fluid bg-dark text-white">
+    <br>
     Hi, 
     <br>
     my name is Destynee and I am a Computer Engineering student at the University of Hawaii at Manoa. Goals scare me so I shall go wherever the wind takes me.
     </p>
+    <br>
+    <br>
+    </div>
     </div>
     <div class="tab-pane container fade" id="menu4">
     <div class = "container-fluid bg-dark text-white">
@@ -154,9 +173,9 @@
         <br>
         <br>
         <br>
-
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-
+        <div>
+        <canvas id="myChart" class ="chart"></canvas>
+        <div>
     </div>
 
 <!-- logic for the graph // Stats for the bar graph came from this website: https://thesmallbusinessblog.net/reddit-statistics/  -->

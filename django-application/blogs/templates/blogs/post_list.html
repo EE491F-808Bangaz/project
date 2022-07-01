@@ -4,7 +4,6 @@
 <!-- display the posts-->
 {% block content %}
     {% for post in posts %}
-        
     <article class ="post">
         <div class = "subforum-row">
             <!-- This is the profile picture-->
@@ -18,7 +17,7 @@
         </div>
         <!-- allow user to edit/delete post only if they are the creator-->
         {%if user.is_authenticated%}
-            {% if user.id == blog.author.id %}
+            {% if user.id == post.author.id %}
                 <div class="subforum-stats subforum-column center" style = "color:blue">
                     <a href="{% url 'post_edit' pk=post.pk %}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -38,7 +37,7 @@
             <b style = "color:white"> Last Posted by </b> <a style = "color:white"> {{post.author}}</a>
             <br> <b style = "color:white"> on </b> <small> <time class = "time" style = "color:white"> {{post.published_date}} <time> </small>
         </div>
-        </div>
+    </div>
     </article>
     {% endfor %}
 {% endblock %}

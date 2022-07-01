@@ -25,8 +25,9 @@ class NewUserForm(UserCreationForm):
 			user.save()
 		return user
 
-# Creating Contact form
-class ContactForm(ModelForm):
-	class Meta:
-		model = Contact
-		fields = '__all__'
+# Contact Us
+class ContactForm(forms.Form):
+	first_name = forms.CharField(max_length = 50)
+	last_name = forms.CharField(max_length = 50)
+	email_address = forms.EmailField(max_length = 150)
+	message = forms.CharField(widget = forms.Textarea, max_length = 2000)

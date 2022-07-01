@@ -1,4 +1,4 @@
- /*
+ 
  .page-header {
     background-color: lightblue;
     margin-top: 0;
@@ -63,7 +63,7 @@ h4 {
     padding: 10px 10px 10px 10px;
     color: gray;
 }
-*/
+
 /* NEW STUFF */
 
 .container{
@@ -129,4 +129,59 @@ body{
 
 .addimage{
     background: url("images/komi.jpg") repeat;
+}
+
+.contact {
+    background-color:#292B2E;
+    padding: 10px;
+    border-radius: 5px;
+    margin:4px;
+    color:white
+}
+
+.megantitle {
+    padding: 10px;
+    width: 300px;
+    background-color: #292B2E;
+    color: white;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+
+}
+
+.picture {
+    border: 8px solid #292B2E;
+}
+
+.meganbackground {
+    background: url("images/stary.gif")
+}
+
+.giantitle {
+    padding: 10px;
+    width: 300px;
+    background-color: #292B2E;
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center;
+
+}
+
+.gianback{
+    background: url("images/mew.gif");
+}
+.dtitle {
+    padding: 10px;
+    width: 300px;
+    background-color: #292B2E;
+    color: white;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+
+}
+
+.chart{
+    width:100%;
+    max-width: 700px;
+    background-color: white;
 }
